@@ -1,4 +1,8 @@
 package edu.kits.movie.Repository;
 
-public interface FavoriteRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Favorite, edu.kits.movie.Domain.FavoriteId> {
+import edu.kits.movie.Domain.Favorite;
+import edu.kits.movie.Domain.FavoriteId;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FavoriteRepository extends JpaRepository<Favorite, FavoriteId> {
 }

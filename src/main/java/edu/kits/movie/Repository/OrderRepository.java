@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface OrderRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Order, java.lang.Integer> {
+import edu.kits.movie.Domain.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderRepository extends JpaRepository<Order, Integer> {
 }

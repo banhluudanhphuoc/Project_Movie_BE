@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface SeasonRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Season, java.lang.Integer> {
+import edu.kits.movie.Domain.Season;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SeasonRepository extends JpaRepository<Season, Integer> {
 }

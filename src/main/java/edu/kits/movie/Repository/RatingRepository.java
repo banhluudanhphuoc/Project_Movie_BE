@@ -1,4 +1,8 @@
 package edu.kits.movie.Repository;
 
-public interface RatingRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Rating, edu.kits.movie.Domain.RatingId> {
+import edu.kits.movie.Domain.Rating;
+import edu.kits.movie.Domain.RatingId;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RatingRepository extends JpaRepository<Rating, RatingId> {
 }

@@ -1,2 +1,4 @@
-package edu.kits.movie.Model;public class OderDTO {
+package edu.kits.movie.Model;
+
+public class OderDTO {
 }

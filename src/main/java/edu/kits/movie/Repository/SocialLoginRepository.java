@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface SocialLoginRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.SocialLogin, java.lang.Integer> {
+import edu.kits.movie.Domain.SocialLogin;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SocialLoginRepository extends JpaRepository<SocialLogin, Integer> {
 }

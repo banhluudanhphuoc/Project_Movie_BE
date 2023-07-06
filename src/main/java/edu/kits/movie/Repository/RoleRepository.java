@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface RoleRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Role, java.lang.Integer> {
+import edu.kits.movie.Domain.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RoleRepository extends JpaRepository<Role, Integer> {
 }

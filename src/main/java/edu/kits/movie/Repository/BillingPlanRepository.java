@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface BillingPlanRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.BillingPlan, java.lang.Integer> {
+import edu.kits.movie.Domain.BillingPlan;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BillingPlanRepository extends JpaRepository<BillingPlan, Integer> {
 }

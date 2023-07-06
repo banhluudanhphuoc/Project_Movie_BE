@@ -1,2 +1,4 @@
-package edu.kits.movie.Aspect;public class LoggingAspect {
+package edu.kits.movie.Aspect;
+
+public class LoggingAspect {
 }
