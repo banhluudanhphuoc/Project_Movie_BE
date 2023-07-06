@@ -1,2 +1,4 @@
-package edu.kits.movie.Controller.Admin;public class ProductController {
+package edu.kits.movie.Controller.Admin;
+
+public class ProductController {
 }

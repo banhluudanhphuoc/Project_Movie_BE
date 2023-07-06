@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface WriterRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Writer, java.lang.Integer> {
+import edu.kits.movie.Domain.Writer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface WriterRepository extends JpaRepository<Writer, Integer> {
 }

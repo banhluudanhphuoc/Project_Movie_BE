@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface GenreRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Genre, java.lang.Integer> {
+import edu.kits.movie.Domain.Genre;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GenreRepository extends JpaRepository<Genre, Integer> {
 }

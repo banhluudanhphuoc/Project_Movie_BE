@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface PaymentStatusRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.PaymentStatus, java.lang.Integer> {
+import edu.kits.movie.Domain.PaymentStatus;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PaymentStatusRepository extends JpaRepository<PaymentStatus, Integer> {
 }

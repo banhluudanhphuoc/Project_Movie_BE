@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface DirectorRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Director, java.lang.Integer> {
+import edu.kits.movie.Domain.Director;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DirectorRepository extends JpaRepository<Director, Integer> {
 }

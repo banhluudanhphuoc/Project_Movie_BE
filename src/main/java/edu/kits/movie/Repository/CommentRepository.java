@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface CommentRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Comment, java.lang.Integer> {
+import edu.kits.movie.Domain.Comment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CommentRepository extends JpaRepository<Comment, Integer> {
 }

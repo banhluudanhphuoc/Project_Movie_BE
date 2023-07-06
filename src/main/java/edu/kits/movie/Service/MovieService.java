@@ -1,2 +1,4 @@
-package edu.kits.movie.Service.Impl;public interface MovieService {
+package edu.kits.movie.Service;
+
+public interface MovieService {
 }

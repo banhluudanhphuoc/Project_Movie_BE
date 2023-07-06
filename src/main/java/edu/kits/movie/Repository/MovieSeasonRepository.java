@@ -1,4 +1,8 @@
 package edu.kits.movie.Repository;
 
-public interface MovieSeasonRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.MovieSeason, edu.kits.movie.Domain.MovieSeasonId> {
+import edu.kits.movie.Domain.MovieSeason;
+import edu.kits.movie.Domain.MovieSeasonId;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MovieSeasonRepository extends JpaRepository<MovieSeason, MovieSeasonId> {
 }

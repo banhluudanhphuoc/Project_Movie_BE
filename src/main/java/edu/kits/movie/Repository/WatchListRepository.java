@@ -1,4 +1,8 @@
 package edu.kits.movie.Repository;
 
-public interface WatchListRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.WatchList, edu.kits.movie.Domain.WatchListId> {
+import edu.kits.movie.Domain.WatchList;
+import edu.kits.movie.Domain.WatchListId;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface WatchListRepository extends JpaRepository<WatchList, WatchListId> {
 }

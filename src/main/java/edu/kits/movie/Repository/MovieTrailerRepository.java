@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface MovieTrailerRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.MovieTrailer, java.lang.Integer> {
+import edu.kits.movie.Domain.MovieTrailer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MovieTrailerRepository extends JpaRepository<MovieTrailer, Integer> {
 }

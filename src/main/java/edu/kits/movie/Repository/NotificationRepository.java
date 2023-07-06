@@ -1,4 +1,7 @@
 package edu.kits.movie.Repository;
 
-public interface NotificationRepository extends org.springframework.data.jpa.repository.JpaRepository<edu.kits.movie.Domain.Notification, java.lang.Integer> {
+import edu.kits.movie.Domain.Notification;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface NotificationRepository extends JpaRepository<Notification, Integer> {
 }
