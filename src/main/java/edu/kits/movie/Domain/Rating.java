@@ -1,6 +1,6 @@
 package edu.kits.movie.Domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +20,7 @@ public class Rating {
     @MapsId("username")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "username", nullable = false)
-    private Account username;
+    private Account account;
 
     @Column(name = "rating_point")
     private Integer ratingPoint;
