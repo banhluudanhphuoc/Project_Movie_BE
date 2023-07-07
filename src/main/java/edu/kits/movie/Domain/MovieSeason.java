@@ -1,6 +1,6 @@
 package edu.kits.movie.Domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,10 +17,10 @@ public class MovieSeason {
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 
-    @MapsId("seasionId")
+    @MapsId("seasonId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "seasion_id", nullable = false)
-    private Season seasion;
+    @JoinColumn(name = "season_id", nullable = false)
+    private Season season;
 
     @Column(name = "rating_point")
     private Integer ratingPoint;
