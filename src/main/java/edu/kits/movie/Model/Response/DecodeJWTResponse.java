@@ -1,0 +1,16 @@
+package edu.kits.movie.Model.Response;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Collection;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class DecodeJWTResponse {
+    private String name;
+    private Collection<?> authority;
+}

@@ -17,7 +17,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetail implements UserDetailsService {
-    AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -30,6 +30,7 @@ public class CustomUserDetail implements UserDetailsService {
         account.getRoles().forEach((role) -> {
             authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
         });
+
         return new User(account.getUsername(),account.getPasswords(),authorities);
     }
 }
