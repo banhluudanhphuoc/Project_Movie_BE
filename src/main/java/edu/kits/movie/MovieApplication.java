@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         name = "Bearer Authentication",
         type = SecuritySchemeType.HTTP,
         bearerFormat = "JWT",
-        scheme = "MovieSeven"
+        scheme = "movieseven"
 )
 @SpringBootApplication
 public class MovieApplication {

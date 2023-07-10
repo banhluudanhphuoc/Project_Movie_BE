@@ -1,7 +1,8 @@
 package edu.kits.movie.Service;
 
 import edu.kits.movie.Model.Request.LoginRequest;
+import org.springframework.http.ResponseEntity;
 
 public interface LoginService {
-    String login(LoginRequest request);
+    ResponseEntity<?> login(LoginRequest request);
 }
