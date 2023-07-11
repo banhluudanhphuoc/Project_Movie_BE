@@ -44,7 +44,7 @@ public class WebSecurityConfig {
         http.cors();
         http.exceptionHandling().authenticationEntryPoint(unauthorizedHandler);
         http.authorizeHttpRequests()
-                .antMatchers("/api/login", "/api/register", "/swagger-ui/**", "/v3/api-docs/**")
+                .antMatchers("/api/login", "/api/signup", "/swagger-ui/**", "/v3/api-docs/**")
                 .permitAll()
                 .antMatchers("/api/v1/admin/**")
                 .hasAnyAuthority("ADMIN")
