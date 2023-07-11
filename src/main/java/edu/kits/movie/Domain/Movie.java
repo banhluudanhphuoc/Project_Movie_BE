@@ -1,9 +1,11 @@
 package edu.kits.movie.Domain;
 
-import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -31,9 +33,10 @@ public class Movie {
     @Column(name = "video", nullable = false, length = 100)
     private String video;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @CreationTimestamp
     private Instant createdAt;
-
+    @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
@@ -41,7 +44,11 @@ public class Movie {
     private String mainPoster;
 
     @Column(name = "isdeleted", nullable = false)
-    private Boolean isdeleted = false;
+    private Boolean isDeleted;
+
+    @JoinColumn(name = "billing_plan_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private BillingPlan billingPlan;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "country_id", nullable = false)

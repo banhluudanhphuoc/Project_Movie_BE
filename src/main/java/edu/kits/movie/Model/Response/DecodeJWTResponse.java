@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
 @Getter
@@ -12,5 +13,5 @@ import java.util.Collection;
 @NoArgsConstructor
 public class DecodeJWTResponse {
     private String name;
-    private Collection<?> authority;
+    private Collection<SimpleGrantedAuthority> authority;
 }

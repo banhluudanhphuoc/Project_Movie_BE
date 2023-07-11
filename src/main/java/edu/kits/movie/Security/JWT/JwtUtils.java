@@ -28,7 +28,7 @@ public class JwtUtils {
 
 
     public String createRefreshToken(String name) {
-        Algorithm algorithm = Algorithm.HMAC256(jwtSecret.getBytes());
+        Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
         return JWT.create().withSubject(name)
                 .withExpiresAt(Instant.now().plusSeconds(24 * 60 * 60 * 30))
                 .sign(algorithm);
@@ -36,7 +36,7 @@ public class JwtUtils {
 
     public DecodeJWTResponse decodeJWT(String token) throws Exception {
         DecodeJWTResponse jwt = new DecodeJWTResponse();
-        Algorithm algorithm = Algorithm.HMAC256(jwtSecret.getBytes());
+        Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
         JWTVerifier verifier = JWT.require(algorithm).build();
         DecodedJWT decodedJWT = verifier.verify(token);
         String username = decodedJWT.getSubject();
@@ -51,7 +51,7 @@ public class JwtUtils {
     }
 
     public String createToken(Authentication authentication) {
-        Algorithm algorithm = Algorithm.HMAC256(jwtSecret.getBytes());
+        Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
         return JWT.create().withSubject(authentication.getName())
                 .withExpiresAt(Instant.now().plusSeconds(60 * 60))
                 .withClaim("roles", authentication.getAuthorities()
