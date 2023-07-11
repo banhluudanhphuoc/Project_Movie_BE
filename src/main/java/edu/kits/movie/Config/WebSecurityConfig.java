@@ -1,6 +1,6 @@
 package edu.kits.movie.Config;
 
-import edu.kits.movie.Security.CustomUserDetail;
+import edu.kits.movie.Security.AuthTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +10,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -19,7 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
     private final RestAuthenticationEntryPoint unauthorizedHandler;
-    private final CustomUserDetail userDetail;
+    private final UserDetailsService userDetail;
 
     @Bean
     BCryptPasswordEncoder passwordEncoder() {
@@ -50,8 +52,17 @@ public class WebSecurityConfig {
                 .hasAnyAuthority("USER", "ADMIN")
                 .anyRequest()
                 .authenticated();
+        http.httpBasic().disable();
+        http.formLogin().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.addFilterBefore(new AuthTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring()
+                .antMatchers("/swagger-ui/**", "/v3/api-docs/**");
     }
 
 }

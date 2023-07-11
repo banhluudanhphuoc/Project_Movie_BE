@@ -4,10 +4,13 @@ package edu.kits.movie.Security;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.kits.movie.Model.Response.DecodeJWTResponse;
 import edu.kits.movie.Security.JWT.JwtUtils;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -22,9 +25,8 @@ import static com.google.common.net.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Slf4j
-@RequiredArgsConstructor
 public class AuthTokenFilter extends OncePerRequestFilter {
-    private final JwtUtils jwtUtils;
+    private final JwtUtils jwtUtils = new JwtUtils();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -38,7 +40,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                 try {
                     String token = authorizationHeader.substring("Bearer ".length());// lấy token
                     DecodeJWTResponse jwtResponse = jwtUtils.decodeJWT(token);
-                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(jwtResponse.getName(), jwtResponse.getAuthority());
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(jwtResponse.getName(),null, jwtResponse.getAuthority());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                     filterChain.doFilter(request, response);
                 } catch (Exception e) {
@@ -51,6 +53,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                     response.setContentType(APPLICATION_JSON_VALUE);
                     new ObjectMapper().writeValue(response.getOutputStream(), error);
                 }
+            }else{
                 filterChain.doFilter(request, response);
             }
         }

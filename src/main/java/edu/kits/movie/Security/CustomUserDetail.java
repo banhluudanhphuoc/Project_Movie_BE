@@ -28,6 +28,7 @@ public class CustomUserDetail implements UserDetailsService {
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
         Account account = accountOptional.get();
         account.getRoles().forEach((role) -> {
+
             authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
         });
 

@@ -1,21 +1,23 @@
 package edu.kits.movie.Service.Impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.UUID;
 import java.util.stream.Stream;
 
 import edu.kits.movie.Service.FileStorageService;
+import org.apache.commons.io.FileUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.commons.io.FilenameUtils;
+
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+
 @Service
 public class FileStorageServiceImpl implements FileStorageService {
     private final Path root = Paths.get("uploads");
@@ -23,7 +25,7 @@ public class FileStorageServiceImpl implements FileStorageService {
     @Override
     public void init() {
         try {
-            Files.createDirectories(root);
+            Files.createDirectories(this.root);
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
         }
@@ -35,7 +37,8 @@ public class FileStorageServiceImpl implements FileStorageService {
             UUID uuid = UUID.randomUUID();
             String uuidString = uuid.toString();
             String ext = FilenameUtils.getExtension(file.getOriginalFilename());
-            Files.copy(file.getInputStream(), this.root.resolve(uuidString + "." + ext));
+            Path newPath = this.root.resolve(uuidString + "." + ext);
+            Files.copy(file.getInputStream(),newPath, REPLACE_EXISTING);
         } catch (Exception e) {
             if (e instanceof FileAlreadyExistsException) {
                 throw new RuntimeException("A file of that name already exists.");

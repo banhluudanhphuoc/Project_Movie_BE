@@ -56,7 +56,10 @@ public class Account {
 
     @Column(name = "email", nullable = false, length = 100)
     private String email;
-
+    @Column(name = "verification_code")
+    private String verificationCode;
+    @Column(name = "email_verified")
+    private Boolean email_verified;
     @ManyToMany
     @JoinTable(name = "authority",
             joinColumns = @JoinColumn(name = "username"),
