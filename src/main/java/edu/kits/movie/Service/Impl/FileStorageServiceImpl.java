@@ -2,8 +2,10 @@ package edu.kits.movie.Service.Impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.nio.file.*;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Stream;
 
@@ -32,48 +34,47 @@ public class FileStorageServiceImpl implements FileStorageService {
     }
 
     @Override
-    public void save(MultipartFile file) {
-        try {
+    public void save(MultipartFile file) throws IOException {
+        try (InputStream inputStream = file.getInputStream()){
             UUID uuid = UUID.randomUUID();
             String uuidString = uuid.toString();
             String ext = FilenameUtils.getExtension(file.getOriginalFilename());
-            Path newPath = this.root.resolve(uuidString + "." + ext);
-            Files.copy(file.getInputStream(),newPath, REPLACE_EXISTING);
-        } catch (Exception e) {
-            if (e instanceof FileAlreadyExistsException) {
-                throw new RuntimeException("A file of that name already exists.");
-            }
-            throw new RuntimeException(e.getMessage());
+            Path newPath = root.resolve(uuidString + "." + ext);
+            Files.copy(inputStream,newPath, REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new IOException("Could");
         }
     }
 
     @Override
     public Resource load(String filename) {
-        try {
-            Path file = root.resolve(filename);
-            Resource resource = new UrlResource(file.toUri());
-
-            if (resource.exists() || resource.isReadable()) {
-                return resource;
-            } else {
-                throw new RuntimeException("Could not read the file!");
-            }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Error: " + e.getMessage());
-        }
+//        try {
+//            Path file = root.resolve(filename);
+//            Resource resource = new UrlResource(file.toUri());
+//
+//            if (resource.exists() || resource.isReadable()) {
+//                return resource;
+//            } else {
+//                throw new RuntimeException("Could not read the file!");
+//            }
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException("Error: " + e.getMessage());
+//        }
+        return null;
     }
 
     @Override
     public void deleteAll() {
-        FileSystemUtils.deleteRecursively(root.toFile());
+//        FileSystemUtils.deleteRecursively(root.toFile());
     }
 
     @Override
     public Stream<Path> loadAll() {
-        try {
-            return Files.walk(this.root, 1).filter(path -> !path.equals(this.root)).map(this.root::relativize);
-        } catch (IOException e) {
-            throw new RuntimeException("Could not load the files!");
-        }
+//        try {
+//            return Files.walk(this.root, 1).filter(path -> !path.equals(this.root)).map(this.root::relativize);
+//        } catch (IOException e) {
+//            throw new RuntimeException("Could not load the files!");
+//        }
+        return null;
     }
 }
