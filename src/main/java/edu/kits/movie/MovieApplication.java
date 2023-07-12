@@ -26,10 +26,10 @@ public class MovieApplication {
     public static void main(String[] args) {
         SpringApplication.run(MovieApplication.class, args);
     }
-    @Bean
-    CommandLineRunner init(FileStorageService storageService) {
-        return (args) -> {
-            storageService.init();
-        };
-    }
+//    @Bean
+//    CommandLineRunner init(FileStorageService storageService) {
+//        return (args) -> {
+//            storageService.init();
+//        };
+//    }
 }

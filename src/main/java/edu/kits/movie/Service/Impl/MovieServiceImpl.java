@@ -5,9 +5,11 @@ import edu.kits.movie.Common.Mapper.ModelConverter;
 import edu.kits.movie.Common.PaginationResponse;
 import edu.kits.movie.Common.SearchOperation;
 import edu.kits.movie.Domain.Movie;
+import edu.kits.movie.Model.Response.MovieDetailResponse;
 import edu.kits.movie.Model.Response.MovieResponse;
 import edu.kits.movie.Repository.MovieRepository;
 import edu.kits.movie.Repository.Specification.MovieSpecificationBuilder;
+import edu.kits.movie.Repository.WatchListRepository;
 import edu.kits.movie.Service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -27,6 +29,7 @@ import java.util.regex.Pattern;
 public class MovieServiceImpl implements MovieService {
     private final ModelConverter converter;
     private final MovieRepository movieRepository;
+    private final WatchListRepository watchListRepository;
 
     @Override
     public PaginationResponse<MovieResponse> getMovies(String search, Pageable pageable) {
@@ -55,5 +58,16 @@ public class MovieServiceImpl implements MovieService {
         }
         movieResponses = converter.mapAllByIterator(movies.getContent(), MovieResponse.class);
         return new PaginationResponse<>(movies.getNumber(), movies.getSize(), movies.getTotalPages(), movieResponses);
+    }
+
+    @Override
+    public MovieDetailResponse getMovieDetails(Integer id) {
+        if (id != null) {
+            Movie movie = movieRepository.findById(id).orElse(null);
+            if (movie != null) {
+                return converter.map(movie, MovieDetailResponse.class);
+            }
+        }
+        return null;
     }
 }
