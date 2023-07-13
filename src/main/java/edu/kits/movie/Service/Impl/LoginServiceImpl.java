@@ -38,7 +38,6 @@ public class LoginServiceImpl implements LoginService {
             if(account == null){
                 loginResponse.put("error","Username or password is not correct");
                 loginResponse.put("status","400");
-                System.out.println("null");
                 return ResponseEntity.badRequest().body(loginResponse);
 
             }
