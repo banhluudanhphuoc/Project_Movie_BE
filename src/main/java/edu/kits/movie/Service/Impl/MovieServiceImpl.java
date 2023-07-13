@@ -4,9 +4,11 @@ import com.google.common.base.Joiner;
 import edu.kits.movie.Common.Mapper.ModelConverter;
 import edu.kits.movie.Common.PaginationResponse;
 import edu.kits.movie.Common.SearchOperation;
-import edu.kits.movie.Entity.Movie;
 import edu.kits.movie.Dto.Response.MovieDetailResponse;
 import edu.kits.movie.Dto.Response.MovieResponse;
+import edu.kits.movie.Dto.Response.MovieSeriesResponse;
+import edu.kits.movie.Entity.Movie;
+import edu.kits.movie.Entity.MovieEpisode;
 import edu.kits.movie.Repository.MovieRepository;
 import edu.kits.movie.Repository.Specification.MovieSpecificationBuilder;
 import edu.kits.movie.Repository.WatchListRepository;
@@ -78,5 +80,23 @@ public class MovieServiceImpl implements MovieService {
                 movies.getSize(),
                 movies.getTotalPages(),
                 converter.mapAllByIterator(movies.getContent(), MovieResponse.class));
+    }
+
+    @Override
+    public PaginationResponse<MovieResponse> getAllMovieSeries(Pageable pageable) {
+        Page<Movie> movies = movieRepository.findAllMoviesSeries(pageable);
+        return new PaginationResponse<>(movies.getNumber(),
+                movies.getSize(),
+                movies.getTotalPages(),
+                converter.mapAllByIterator(movies.getContent(), MovieResponse.class));
+    }
+
+    @Override
+    public PaginationResponse<MovieSeriesResponse> getMovieSeriesBySeason(Integer movieId, Integer seasonId, Pageable pageable) {
+        Page<MovieEpisode> movies = movieRepository.findMoviesSeriesBySeason(movieId, seasonId, pageable);
+        return new PaginationResponse<>(movies.getNumber(),
+                movies.getSize(),
+                movies.getTotalPages(),
+                converter.mapAllByIterator(movies.getContent(), MovieSeriesResponse.class));
     }
 }

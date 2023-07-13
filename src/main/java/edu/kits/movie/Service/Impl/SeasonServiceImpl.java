@@ -26,4 +26,12 @@ public class SeasonServiceImpl implements SeasonService {
             return converter.mapAllByIterator(seasons, SeasonResponse.class);
         return new ArrayList<>();
     }
+
+    @Override
+    public List<SeasonResponse> getMovieSeasons(Integer movieId) {
+        List<Season> seasons = seasonRepository.findMovieSeason(movieId);
+        if(!seasons.isEmpty())
+            return converter.mapAllByIterator(seasons, SeasonResponse.class);
+        return new ArrayList<>();
+    }
 }

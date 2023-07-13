@@ -28,4 +28,10 @@ public class MovieEpisode {
 
     @Column(name = "video")
     private String video;
+
+    @Column(name = "episode_name")
+    private String episodeName;
+
+    @Column(name = "episode")
+    private Integer episode;
 }

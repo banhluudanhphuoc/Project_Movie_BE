@@ -15,12 +15,12 @@ import org.springframework.context.annotation.Bean;
         servers = {
                 @Server(url = "http://localhost:8080", description = "Default Server URL"),
         })
-@SecurityScheme(
-        name = "Bearer Authentication",
-        type = SecuritySchemeType.HTTP,
-        bearerFormat = "JWT",
-        scheme = "bearer"
-)
+//@SecurityScheme(
+//        name = "Bearer Authentication",
+//        type = SecuritySchemeType.HTTP,
+//        bearerFormat = "JWT",
+//        scheme = "bearer"
+//)
 @SpringBootApplication
 public class MovieApplication {
     public static void main(String[] args) {
