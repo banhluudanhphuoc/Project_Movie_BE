@@ -66,7 +66,7 @@ public class Account {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "username")
+    @OneToMany(mappedBy = "account")
     private Set<Comment> comments = new LinkedHashSet<>();
 
     @ManyToMany

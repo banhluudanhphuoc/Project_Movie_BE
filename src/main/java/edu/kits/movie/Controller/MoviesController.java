@@ -32,4 +32,11 @@ public class MoviesController {
     public ResponseEntity<MovieDetailResponse> getMovieDetails(@PathVariable Optional<Integer> movieId){
         return movieId.map(id -> ResponseEntity.ok(movieService.getMovieDetails(id))).orElseGet(() -> ResponseEntity.badRequest().build());
     }
+
+    @GetMapping("/movies/top-ten")
+    public ResponseEntity<PaginationResponse<MovieResponse>> getMovieDetails(@RequestParam(value = "size") Optional<Integer> size,
+                                                                             @RequestParam(value = "page") Optional<Integer> page){
+        Pageable pageable = PageRequest.of(page.orElse(0), size.orElse(10));
+        return ResponseEntity.ok(movieService.getTopTenMovieByRating(pageable));
+    }
 }
