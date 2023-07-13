@@ -24,6 +24,7 @@ public class MovieDetailResponse implements Serializable {
     private String country_countryName;
     private String director_directorName;
     private String writer_writerName;
+    private boolean isSeries;
     private List<ActorResponse> actors;
     private List<GenresResponse> genres;
     private List<TrailerResponse> movieTrailers;
