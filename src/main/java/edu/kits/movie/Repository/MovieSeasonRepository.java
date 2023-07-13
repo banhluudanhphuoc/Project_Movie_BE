@@ -5,4 +5,5 @@ import edu.kits.movie.Domain.MovieSeasonId;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MovieSeasonRepository extends JpaRepository<MovieSeason, MovieSeasonId> {
+
 }

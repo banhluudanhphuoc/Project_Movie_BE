@@ -70,4 +70,13 @@ public class MovieServiceImpl implements MovieService {
         }
         return null;
     }
+
+    @Override
+    public PaginationResponse<MovieResponse> getTopTenMovieByRating(Pageable pageable) {
+        Page<Movie> movies = movieRepository.findTopTenMovieByRatings(pageable);
+        return new PaginationResponse<>(movies.getNumber(),
+                movies.getSize(),
+                movies.getTotalPages(),
+                converter.mapAllByIterator(movies.getContent(), MovieResponse.class));
+    }
 }

@@ -3,10 +3,12 @@ package edu.kits.movie.Domain;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -32,6 +34,9 @@ public class Movie {
 
     @Column(name = "video", nullable = false, length = 100)
     private String video;
+
+    @Column(name = "released_year")
+    private Date releasedYear;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
@@ -65,6 +70,9 @@ public class Movie {
     @OneToMany(mappedBy = "movie")
     private Set<Comment> comments = new LinkedHashSet<>();
 
+    @OneToMany(mappedBy = "movie")
+    private Set<MovieEpisode> movieEpisode = new LinkedHashSet<>();
+
     @ManyToMany(mappedBy = "movies")
     private Set<Account> accounts = new LinkedHashSet<>();
 
@@ -88,5 +96,8 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie")
     private Set<WatchList> watchLists = new LinkedHashSet<>();
+
+    @Formula("(SELECT AVG(r.rating_point) FROM rating r where r.movie_id = movie_id)")
+    private Double averageRatingPoint;
 
 }

@@ -5,15 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
-
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class RatingRequest {
-    @NotNull
-    private Integer ratingPoint;
-    @NotNull
-    private Integer movie_id;
+@NoArgsConstructor
+public class CommentRequest {
+    private Integer movieId;
+    private String description;
 }

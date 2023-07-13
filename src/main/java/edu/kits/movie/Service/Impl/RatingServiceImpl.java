@@ -21,14 +21,16 @@ public class RatingServiceImpl implements RatingService {
     private final RatingRepository ratingRepository;
     private final ModelConverter converter;
     private final UserService userService;
+
     @Override
     public RatingResponse rating(RatingRequest ratingRequest) {
         String username = userService.getCurrentUser();
-        if(ratingRequest != null && username!=null){
+        if (ratingRequest != null && username != null) {
             RatingId ratingId = new RatingId();
             Account account = new Account();
+            account.setUsername(username);
             Movie movie = new Movie();
-
+            movie.setId(ratingRequest.getMovie_id());
             ratingId.setUsername(username);
             ratingId.setMovieId(ratingRequest.getMovie_id());
 
@@ -37,7 +39,7 @@ public class RatingServiceImpl implements RatingService {
             rating.setId(ratingId);
             rating.setAccount(account);
             rating.setMovie(movie);
-          return converter.map(ratingRepository.save(rating),RatingResponse.class);
+            return converter.map(ratingRepository.save(rating), RatingResponse.class);
         }
         return null;
     }
