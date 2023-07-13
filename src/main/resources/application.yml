@@ -4,9 +4,9 @@ spring:
       max-file-size : 10MB
       max-request-size: 10MB
   datasource:
-    url: jdbc:mysql://localhost:3306/movie
+    url: jdbc:mysql://18.142.210.17:6033/group_7
     username: root
-    password: nhatphu234aA.
+    password: my_secret_password
   jpa:
     show-sql: true
     properties:
@@ -20,30 +20,30 @@ spring:
   web:
     locale: vi_VN
     locale-resolver: fixed
-#  mail:
-#    default-encoding: UTF-8
-#    host: smtp.gmail.com
-#    username: bonikshope@gmail.com
-#    password: osnmzlhkfqpobusv
-#    port: 587
-#    properties:
-#      mail:
-#        smtp:
-#          auth: true
-#          starttls:
-#            enable: true
-#    protocol: smtp
-#    test-connection: false
-#  liquibase:
-#    change-log: classpath:db/changelog.xml
-#    enabled: false #false is not use liquibase when no have new design
-#  jackson:
-#    deserialization:
-#      fail-on-unknown-properties: true
-#  logging:
-#    level:
-#      org:
-#        hibernate: ERROR
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: banhdavid26@gmail.com
+    password: jbnknqkwkdpdbgwi
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
+  liquibase:
+    change-log: classpath:db/changelog.xml
+    enabled: false #false is not use liquibase when no have new design
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  logging:
+    level:
+      org:
+        hibernate: ERROR
   app:
     jwtRefreshExpirationMs: 6000
     jwtExpirationMs: 60000
@@ -69,3 +69,4 @@ spring:
 #            scope:
 #              - email
 #              - profile
+

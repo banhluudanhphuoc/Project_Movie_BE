@@ -1,10 +1,11 @@
 package edu.kits.movie.Domain;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
@@ -16,15 +17,19 @@ import java.util.Set;
 @Table(name = "account")
 public class Account {
     @Id
+    @Size(max = 100)
     @Column(name = "username", nullable = false, length = 100)
     private String username;
 
+    @Size(max = 255)
     @Column(name = "Passwords")
     private String passwords;
 
+    @Size(max = 255)
     @Column(name = "refresh_token")
     private String refreshToken;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "billing_plan_id", nullable = false)
     private BillingPlan billingPlan;
@@ -39,27 +44,34 @@ public class Account {
     @JoinColumn(name = "social_login_id")
     private SocialLogin socialLogin;
 
+    @Size(max = 100)
+    @NotNull
     @Column(name = "full_name", nullable = false, length = 100)
     private String fullName;
 
+    @Size(max = 150)
     @Column(name = "address", length = 150)
     private String address;
 
+    @NotNull
     @Column(name = "phone_number", nullable = false)
     private Integer phoneNumber;
 
+    @Size(max = 50)
     @Column(name = "avatar", length = 50)
     private String avatar;
 
-    @Column(name = "date_of_birth")
+    @Column(name = "dateOfBirth")
     private LocalDate dateOfBirth;
 
+    @Size(max = 100)
+    @NotNull
     @Column(name = "email", nullable = false, length = 100)
     private String email;
     @Column(name = "verification_code")
     private String verificationCode;
     @Column(name = "email_verified")
-    private Boolean email_verified;
+    private Boolean emailVerified;
     @ManyToMany
     @JoinTable(name = "authority",
             joinColumns = @JoinColumn(name = "username"),
@@ -86,5 +98,6 @@ public class Account {
 
     @OneToMany(mappedBy = "account")
     private Set<WatchList> watchLists = new LinkedHashSet<>();
+
 
 }
