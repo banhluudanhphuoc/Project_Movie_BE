@@ -1,9 +1,9 @@
 package edu.kits.movie.Entity;
 
-import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -21,6 +21,5 @@ public class Season {
     private String seasonName;
 
     @OneToMany(mappedBy = "season")
-    private Set<MovieSeason> movieSeasons = new LinkedHashSet<>();
-
+    private Set<MovieEpisode> movieEpisodes = new LinkedHashSet<>();
 }

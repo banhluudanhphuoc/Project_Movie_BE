@@ -83,9 +83,6 @@ public class Movie {
     private Set<Genre> genres = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "movie")
-    private Set<MovieSeason> movieSeasons = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "movie")
     private Set<MovieTrailer> movieTrailers = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "movie")
@@ -100,4 +97,11 @@ public class Movie {
     @Formula("(SELECT AVG(r.rating_point) FROM rating r where r.movie_id = movie_id)")
     private Double averageRatingPoint;
 
+    public boolean isSeries() {
+        for (Genre genre : genres) {
+            if (genre.getGenresName().equalsIgnoreCase("series"))
+                return true;
+        }
+        return false;
+    }
 }
