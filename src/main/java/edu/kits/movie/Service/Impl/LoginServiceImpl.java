@@ -1,8 +1,8 @@
 package edu.kits.movie.Service.Impl;
 
 import edu.kits.movie.Common.Mapper.ModelConverter;
-import edu.kits.movie.Domain.Account;
-import edu.kits.movie.Model.Request.LoginRequest;
+import edu.kits.movie.Entity.Account;
+import edu.kits.movie.Dto.Request.LoginRequest;
 import edu.kits.movie.Repository.AccountRepository;
 import edu.kits.movie.Security.JWT.JwtUtils;
 import edu.kits.movie.Service.LoginService;

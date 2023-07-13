@@ -1,6 +1,6 @@
 package edu.kits.movie.Service;
 
-import edu.kits.movie.Domain.Account;
+import edu.kits.movie.Entity.Account;
 import edu.kits.movie.Repository.AccountRepository;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

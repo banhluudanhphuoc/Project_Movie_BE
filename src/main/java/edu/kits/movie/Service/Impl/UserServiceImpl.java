@@ -1,8 +1,8 @@
 package edu.kits.movie.Service.Impl;
 
 import edu.kits.movie.Common.Mapper.ModelConverter;
-import edu.kits.movie.Domain.Account;
-import edu.kits.movie.Model.Response.UserResponse;
+import edu.kits.movie.Entity.Account;
+import edu.kits.movie.Dto.Response.UserResponse;
 import edu.kits.movie.Repository.AccountRepository;
 import edu.kits.movie.Service.UserService;
 import lombok.RequiredArgsConstructor;

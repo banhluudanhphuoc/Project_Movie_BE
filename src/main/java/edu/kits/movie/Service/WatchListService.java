@@ -1,6 +1,6 @@
 package edu.kits.movie.Service;
 
-import edu.kits.movie.Model.Response.WatchListResponse;
+import edu.kits.movie.Dto.Response.WatchListResponse;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;

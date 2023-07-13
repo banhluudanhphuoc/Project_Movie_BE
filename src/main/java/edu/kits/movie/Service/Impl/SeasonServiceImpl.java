@@ -1,8 +1,8 @@
 package edu.kits.movie.Service.Impl;
 
 import edu.kits.movie.Common.Mapper.ModelConverter;
-import edu.kits.movie.Domain.Season;
-import edu.kits.movie.Model.Response.SeasonResponse;
+import edu.kits.movie.Entity.Season;
+import edu.kits.movie.Dto.Response.SeasonResponse;
 import edu.kits.movie.Repository.SeasonRepository;
 import edu.kits.movie.Service.SeasonService;
 import lombok.RequiredArgsConstructor;

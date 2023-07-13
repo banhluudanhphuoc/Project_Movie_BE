@@ -1,7 +1,7 @@
 package edu.kits.movie.Controller;
 
 import edu.kits.movie.Controller.Router.Api;
-import edu.kits.movie.Model.Response.UserResponse;
+import edu.kits.movie.Dto.Response.UserResponse;
 import edu.kits.movie.Service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package edu.kits.movie.Exception;
 
-import edu.kits.movie.Model.Response.ResponseMessageDto;
+import edu.kits.movie.Dto.Response.ResponseMessageDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

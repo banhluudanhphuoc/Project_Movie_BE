@@ -1,6 +1,6 @@
 package edu.kits.movie.Controller.Account;
 
-import edu.kits.movie.Model.Request.SignUpRequest;
+import edu.kits.movie.Dto.Request.SignUpRequest;
 import edu.kits.movie.Service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -2,15 +2,11 @@ package edu.kits.movie.Security;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.kits.movie.Model.Response.DecodeJWTResponse;
+import edu.kits.movie.Dto.Response.DecodeJWTResponse;
 import edu.kits.movie.Security.JWT.JwtUtils;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;

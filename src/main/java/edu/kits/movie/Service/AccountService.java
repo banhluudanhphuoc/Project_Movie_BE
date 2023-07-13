@@ -1,11 +1,10 @@
 package edu.kits.movie.Service;
 
-import edu.kits.movie.Domain.*;
-import edu.kits.movie.Model.Request.SignUpRequest;
+import edu.kits.movie.Entity.*;
+import edu.kits.movie.Dto.Request.SignUpRequest;
 import edu.kits.movie.Repository.AccountRepository;
 import edu.kits.movie.Repository.AuthorityRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

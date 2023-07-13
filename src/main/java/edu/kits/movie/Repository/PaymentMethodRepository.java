@@ -1,6 +1,6 @@
 package edu.kits.movie.Repository;
 
-import edu.kits.movie.Domain.PaymentMethod;
+import edu.kits.movie.Entity.PaymentMethod;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PaymentMethodRepository extends JpaRepository<PaymentMethod, Integer> {

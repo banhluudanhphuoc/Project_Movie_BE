@@ -2,8 +2,8 @@ package edu.kits.movie.Controller;
 
 import edu.kits.movie.Common.PaginationResponse;
 import edu.kits.movie.Controller.Router.Api;
-import edu.kits.movie.Model.Response.MovieDetailResponse;
-import edu.kits.movie.Model.Response.MovieResponse;
+import edu.kits.movie.Dto.Response.MovieDetailResponse;
+import edu.kits.movie.Dto.Response.MovieResponse;
 import edu.kits.movie.Service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
