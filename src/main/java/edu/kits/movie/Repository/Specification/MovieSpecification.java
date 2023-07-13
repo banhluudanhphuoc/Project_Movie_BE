@@ -1,7 +1,7 @@
 package edu.kits.movie.Repository.Specification;
 
 import edu.kits.movie.Common.SpecSearchCriteria;
-import edu.kits.movie.Domain.Movie;
+import edu.kits.movie.Entity.Movie;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;

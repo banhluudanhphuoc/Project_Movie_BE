@@ -1,7 +1,7 @@
 package edu.kits.movie.Controller;
 
 import edu.kits.movie.Controller.Router.Api;
-import edu.kits.movie.Model.Response.ResponseMessageDto;
+import edu.kits.movie.Dto.Response.ResponseMessageDto;
 import edu.kits.movie.Service.FileStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,12 +1,12 @@
 package edu.kits.movie.Service.Impl;
 
 import edu.kits.movie.Common.Mapper.ModelConverter;
-import edu.kits.movie.Domain.Account;
-import edu.kits.movie.Domain.Movie;
-import edu.kits.movie.Domain.Rating;
-import edu.kits.movie.Domain.RatingId;
-import edu.kits.movie.Model.Request.RatingRequest;
-import edu.kits.movie.Model.Response.RatingResponse;
+import edu.kits.movie.Entity.Account;
+import edu.kits.movie.Entity.Movie;
+import edu.kits.movie.Entity.Rating;
+import edu.kits.movie.Entity.RatingId;
+import edu.kits.movie.Dto.Request.RatingRequest;
+import edu.kits.movie.Dto.Response.RatingResponse;
 import edu.kits.movie.Repository.RatingRepository;
 import edu.kits.movie.Service.RatingService;
 import edu.kits.movie.Service.UserService;

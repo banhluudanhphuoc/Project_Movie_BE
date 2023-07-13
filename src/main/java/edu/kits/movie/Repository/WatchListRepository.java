@@ -1,7 +1,7 @@
 package edu.kits.movie.Repository;
 
-import edu.kits.movie.Domain.WatchList;
-import edu.kits.movie.Domain.WatchListId;
+import edu.kits.movie.Entity.WatchList;
+import edu.kits.movie.Entity.WatchListId;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 

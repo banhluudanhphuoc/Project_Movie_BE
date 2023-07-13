@@ -1,11 +1,11 @@
 package edu.kits.movie.Service.Impl;
 
 import edu.kits.movie.Common.Mapper.ModelConverter;
-import edu.kits.movie.Domain.Account;
-import edu.kits.movie.Domain.Movie;
-import edu.kits.movie.Domain.WatchList;
-import edu.kits.movie.Domain.WatchListId;
-import edu.kits.movie.Model.Response.WatchListResponse;
+import edu.kits.movie.Entity.Account;
+import edu.kits.movie.Entity.Movie;
+import edu.kits.movie.Entity.WatchList;
+import edu.kits.movie.Entity.WatchListId;
+import edu.kits.movie.Dto.Response.WatchListResponse;
 import edu.kits.movie.Repository.WatchListRepository;
 import edu.kits.movie.Service.UserService;
 import edu.kits.movie.Service.WatchListService;

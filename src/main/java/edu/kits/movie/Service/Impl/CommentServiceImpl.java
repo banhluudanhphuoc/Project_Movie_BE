@@ -1,11 +1,11 @@
 package edu.kits.movie.Service.Impl;
 
 import edu.kits.movie.Common.Mapper.ModelConverter;
-import edu.kits.movie.Domain.Account;
-import edu.kits.movie.Domain.Comment;
-import edu.kits.movie.Domain.Movie;
-import edu.kits.movie.Model.Request.CommentRequest;
-import edu.kits.movie.Model.Response.CommentResponse;
+import edu.kits.movie.Entity.Account;
+import edu.kits.movie.Entity.Comment;
+import edu.kits.movie.Entity.Movie;
+import edu.kits.movie.Dto.Request.CommentRequest;
+import edu.kits.movie.Dto.Response.CommentResponse;
 import edu.kits.movie.Repository.CommentRepository;
 import edu.kits.movie.Service.CommentService;
 import edu.kits.movie.Service.UserService;

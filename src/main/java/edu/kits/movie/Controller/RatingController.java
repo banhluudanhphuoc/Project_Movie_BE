@@ -1,8 +1,8 @@
 package edu.kits.movie.Controller;
 
 import edu.kits.movie.Controller.Router.Api;
-import edu.kits.movie.Model.Request.RatingRequest;
-import edu.kits.movie.Model.Response.RatingResponse;
+import edu.kits.movie.Dto.Request.RatingRequest;
+import edu.kits.movie.Dto.Response.RatingResponse;
 import edu.kits.movie.Service.RatingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

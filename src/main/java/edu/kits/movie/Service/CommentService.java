@@ -1,7 +1,7 @@
 package edu.kits.movie.Service;
 
-import edu.kits.movie.Model.Request.CommentRequest;
-import edu.kits.movie.Model.Response.CommentResponse;
+import edu.kits.movie.Dto.Request.CommentRequest;
+import edu.kits.movie.Dto.Response.CommentResponse;
 
 import java.util.List;
 

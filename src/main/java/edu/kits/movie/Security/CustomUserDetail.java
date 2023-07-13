@@ -1,6 +1,6 @@
 package edu.kits.movie.Security;
 
-import edu.kits.movie.Domain.Account;
+import edu.kits.movie.Entity.Account;
 import edu.kits.movie.Repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

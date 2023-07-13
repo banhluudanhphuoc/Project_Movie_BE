@@ -1,6 +1,6 @@
 package edu.kits.movie.Repository;
 
-import edu.kits.movie.Domain.Account;
+import edu.kits.movie.Entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

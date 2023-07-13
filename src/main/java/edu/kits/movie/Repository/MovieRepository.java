@@ -1,7 +1,6 @@
 package edu.kits.movie.Repository;
 
-import edu.kits.movie.Domain.Movie;
-import edu.kits.movie.Domain.MovieEpisode;
+import edu.kits.movie.Entity.Movie;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,7 +1,7 @@
 package edu.kits.movie.Controller;
 
 import edu.kits.movie.Controller.Router.Api;
-import edu.kits.movie.Model.Response.WatchListResponse;
+import edu.kits.movie.Dto.Response.WatchListResponse;
 import edu.kits.movie.Service.WatchListService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
