@@ -38,7 +38,7 @@ public class MovieServiceImpl implements MovieService {
         Page<Movie> movies;
         if (search != null) {
             MovieSpecificationBuilder builder = new MovieSpecificationBuilder();
-
+//            builder.with("premiereDate",">");
             String operationSetExper = Joiner.on("|")
                     .join(SearchOperation.SIMPLE_OPERATION_SET);
             Pattern pattern = Pattern.compile("(\\w+?)(" + operationSetExper + ")(\\p{Punct}?)(\\w+?)(\\p{Punct}?),");

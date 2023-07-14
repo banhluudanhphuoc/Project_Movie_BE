@@ -16,11 +16,11 @@ public class MovieResponse implements Serializable {
     private Integer id;
     private String movieName;
     private String description;
-    private String movieLength;
+    private String runningTime;
     private String video;
     private String mainPoster;
     private String billingPlan_billingPlanName;
     private String billingPlan_id;
     private Integer averageRatingPoint;
-    private Date releasedYear;
+    private Date releasedDate;
 }

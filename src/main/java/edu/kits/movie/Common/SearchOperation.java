@@ -1,9 +1,12 @@
 package edu.kits.movie.Common;
 
-public enum SearchOperation {
-    EQUALITY, NEGATION, GREATER_THAN, LESS_THAN, LIKE, STARTS_WITH, ENDS_WITH, CONTAINS;
+import org.apache.el.parser.AstGreaterThan;
 
-    public static final String[] SIMPLE_OPERATION_SET = { ":", "!", ">", "<", "~" };
+public enum SearchOperation {
+    EQUALITY, NEGATION, GREATER_THAN, LESS_THAN, LIKE, STARTS_WITH, ENDS_WITH,
+    CONTAINS,GREATER_THAN_OR_EQUAL_TO,LESS_THAN_OR_EQUAL_TO;
+
+    public static final String[] SIMPLE_OPERATION_SET = { ":", "!", ">", "<", "~",">=","<="};
 
     public static final String OR_PREDICATE_FLAG = "'";
 
@@ -24,6 +27,8 @@ public enum SearchOperation {
             case '>' -> GREATER_THAN;
             case '<' -> LESS_THAN;
             case '~' -> LIKE;
+            case '≥' -> GREATER_THAN_OR_EQUAL_TO;
+            case '≤' -> LESS_THAN_OR_EQUAL_TO;
             default -> null;
         };
     }

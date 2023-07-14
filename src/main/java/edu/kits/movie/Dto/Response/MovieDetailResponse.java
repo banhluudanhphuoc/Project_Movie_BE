@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,7 +17,7 @@ public class MovieDetailResponse implements Serializable {
     private Integer id;
     private String movieName;
     private String description;
-    private String movieLength;
+    private String runningTime;
     private String video;
     private String mainPoster;
     private String billingPlan_billingPlanName;
@@ -29,4 +30,5 @@ public class MovieDetailResponse implements Serializable {
     private List<GenresResponse> genres;
     private List<TrailerResponse> movieTrailers;
     private List<PosterResponse> posters;
+    private Date releasedDate;
 }

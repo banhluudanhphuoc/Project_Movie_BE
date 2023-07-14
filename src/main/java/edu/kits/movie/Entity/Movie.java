@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -29,14 +30,17 @@ public class Movie {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "movie_length", nullable = false, length = 50)
-    private String movieLength;
+    @Column(name = "running_time", nullable = false, length = 50)
+    private String runningTime;
 
     @Column(name = "video", nullable = false, length = 100)
     private String video;
 
-    @Column(name = "released_year")
-    private Date releasedYear;
+    @Column(name = "premiere_date")
+    private LocalDateTime premiereDate;
+
+    @Column(name = "released_date")
+    private Date releasedDate;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
