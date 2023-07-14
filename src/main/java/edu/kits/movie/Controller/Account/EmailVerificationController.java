@@ -1,5 +1,6 @@
 package edu.kits.movie.Controller.Account;
 
+import edu.kits.movie.Controller.Router.Api;
 import edu.kits.movie.Service.EmailVerificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(Api.BASE)
 public class EmailVerificationController {
 
     @Autowired
