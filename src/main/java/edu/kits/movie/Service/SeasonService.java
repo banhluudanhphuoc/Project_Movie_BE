@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SeasonService {
     List<SeasonResponse> getSeasons();
+    List<SeasonResponse> getMovieSeasons(Integer movieId);
 }

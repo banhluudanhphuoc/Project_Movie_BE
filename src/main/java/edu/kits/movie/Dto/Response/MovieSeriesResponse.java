@@ -15,5 +15,5 @@ public class MovieSeriesResponse implements Serializable {
     private Integer id;
     private String description;
     private String video;
-    private String movie_video;
+    private String episodeName;
 }

@@ -12,7 +12,10 @@ public interface MovieRepository extends JpaRepository<Movie, Integer>, JpaSpeci
     @Query("select m from Movie m order by m.averageRatingPoint desc ")
     Page<Movie> findTopTenMovieByRatings(Pageable pageable);
 
-    @Query("select e from MovieEpisode e where e.movie.id=:movieId")
-    Page<MovieEpisode> findMoviesSeries(Pageable pageable);
+    @Query("select e from MovieEpisode e where e.movie.id=:movieId " +
+            "and e.season.id=:seasonId ")
+    Page<MovieEpisode> findMoviesSeriesBySeason(Integer movieId, Integer seasonId, Pageable pageable);
 
+    @Query("select m.movie from MovieGenre m where m.genres.id=14")
+    Page<Movie> findAllMoviesSeries(Pageable pageable);
 }
