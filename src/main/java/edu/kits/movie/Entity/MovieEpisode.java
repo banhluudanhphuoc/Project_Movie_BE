@@ -19,9 +19,19 @@ public class MovieEpisode {
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "season_id", nullable = false)
+    private Season season;
+
     @Column(name = "description")
     private String description;
 
     @Column(name = "video")
     private String video;
+
+    @Column(name = "episode_name")
+    private String episodeName;
+
+    @Column(name = "episode")
+    private Integer episode;
 }

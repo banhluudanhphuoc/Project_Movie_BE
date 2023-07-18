@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
-public class MovieSeriesResponse implements Serializable {
-    private Integer movie_id;
+@Setter
+@Getter
+public class BillingPlanResponse implements Serializable {
     private Integer id;
-    private String description;
-    private String video;
-    private String episodeName;
+    private String billingPlanName;
+    private Double price;
+    private String durationText;
 }
