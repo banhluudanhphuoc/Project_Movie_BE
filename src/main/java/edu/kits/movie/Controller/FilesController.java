@@ -3,20 +3,20 @@ package edu.kits.movie.Controller;
 import edu.kits.movie.Controller.Router.Api;
 import edu.kits.movie.Dto.Response.ResponseMessageDto;
 import edu.kits.movie.Service.FileStorageService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping(Api.UserApi.USER_BASE)
+@RequestMapping(Api.BASE)
+@RequiredArgsConstructor
 public class FilesController {
-    @Autowired
-    FileStorageService storageService;
+
+    private final FileStorageService storageService;
     @PostMapping
     public ResponseEntity<ResponseMessageDto> uploadFile(@RequestParam("file") MultipartFile file){
         String message = "";
@@ -28,6 +28,11 @@ public class FilesController {
             message = "Could not upload the file: " + file.getOriginalFilename() + ". Error: " + e.getMessage();
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessageDto(message));
         }
+    }
+
+    @GetMapping("/file")
+    public  ResponseEntity<byte[]> getImage(@RequestParam("fileName") String fileName){
+        return ResponseEntity.ok(storageService.load(fileName));
     }
 
 }

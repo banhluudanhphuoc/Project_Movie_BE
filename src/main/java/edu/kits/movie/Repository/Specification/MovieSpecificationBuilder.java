@@ -23,7 +23,7 @@ public class MovieSpecificationBuilder {
 
     public final MovieSpecificationBuilder with(String orPredicate, String key, String operation, Object value,
                                                 String prefix, String suffix) {
-        SearchOperation op = SearchOperation.getSimpleOperation(operation.charAt(0));
+        SearchOperation op = SearchOperation.getSimpleOperation(operation);
         if (op != null) {
             if (op == SearchOperation.EQUALITY) { // the operation may be complex operation
                 boolean startWithAsterisk = prefix != null &&

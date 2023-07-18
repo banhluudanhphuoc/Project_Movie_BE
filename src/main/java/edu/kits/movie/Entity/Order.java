@@ -3,6 +3,7 @@ package edu.kits.movie.Entity;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 
@@ -22,13 +23,14 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "username")
-    private Account username;
+    private Account account;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "payment_method_id")
     private PaymentMethod paymentMethod;
 
     @Column(name = "ordered_at")
+    @CreationTimestamp
     private LocalDate orderedAt;
 
     @Column(name = "amount")

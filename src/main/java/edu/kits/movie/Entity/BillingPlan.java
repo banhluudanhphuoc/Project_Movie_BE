@@ -24,8 +24,11 @@ public class BillingPlan {
     @Column(name = "price")
     private Double price;
 
-    @Column(name = "duration", length = 100)
-    private String duration;
+    @Column(name = "duration_text", length = 100)
+    private String durationText;
+
+    @Column(name = "duration_in_months")
+    private Long durationInMonth;
 
     @OneToMany(mappedBy = "billingPlan")
     private Set<Account> accounts = new LinkedHashSet<>();

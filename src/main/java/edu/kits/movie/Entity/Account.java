@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -35,7 +36,7 @@ public class Account {
     private BillingPlan billingPlan;
 
     @Column(name = "billing_plan_expired_at")
-    private Instant billingPlanExpiredAt;
+    private LocalDateTime billingPlanExpiredAt;
 
     @Column(name = "is_active")
     private Boolean isActive;
@@ -90,7 +91,7 @@ public class Account {
     @OneToMany(mappedBy = "username")
     private Set<Notification> notifications = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "username")
+    @OneToMany(mappedBy = "account")
     private Set<Order> orders = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "account")
