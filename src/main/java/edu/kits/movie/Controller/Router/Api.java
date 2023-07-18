@@ -8,6 +8,6 @@ public class Api {
     }
 
     public static class AdminApi{
-
+        public static final String ADMIN_BASE = BASE + "/admin";
     }
 }
