@@ -12,7 +12,7 @@ public interface FileStorageService {
 
     void save(MultipartFile file) throws IOException;
 
-    Resource load(String filename);
+    byte[] load(String filename);
 
     void deleteAll();
 

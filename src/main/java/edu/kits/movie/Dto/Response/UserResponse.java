@@ -16,6 +16,8 @@ import java.time.LocalDate;
 public class UserResponse implements Serializable {
     private String username;
     private Instant billingPlanExpiredAt;
+    private String billingPlan_billingPlanName;
+    private Integer billingPlan_id;
     private String fullName;
     private String address;
     private String phoneNumber;
