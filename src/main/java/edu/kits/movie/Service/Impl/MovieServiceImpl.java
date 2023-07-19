@@ -124,4 +124,12 @@ public class MovieServiceImpl implements MovieService {
         }
         return null;
     }
+
+    @Override
+    public WatchMovieResponse watchMovie(Integer movieId) {
+        Movie movie = movieRepository.findById(movieId).orElse(null);
+        if (movie == null)
+            return null;
+        return converter.map(movie, WatchMovieResponse.class);
+    }
 }

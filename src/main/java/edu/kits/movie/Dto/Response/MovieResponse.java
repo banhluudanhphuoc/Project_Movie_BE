@@ -15,8 +15,6 @@ import java.util.Date;
 public class MovieResponse implements Serializable {
     private Integer id;
     private String movieName;
-    private String description;
-    private String runningTime;
     private String video;
     private String mainPoster;
     private String billingPlan_billingPlanName;
