@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Poster</h1>
+<input onchange="selectedImg(this)" multiple="multiple" type="file"/>
+<h1>Video</h1>
+<input type="file">
+<button onclick="submit()">submit</button>
+</body>
+<script>
+    let formData = new FormData();
+
+    function selectedImg(file) {
+        console.log(file.files.length)
+        formData.append('video', file.files[0]);
+        formData.append('mainPoster', file.files[0]);
+        formData.append('trailers', "[]");
+        for(let i = 0 ; i < file.files.length ; i ++){
+            formData.append('posters', file.files[i]);
+        }
+        formData.append('request', new Blob([JSON.stringify({
+            "billingPlan_id": 1,
+            "writer_id": 1,
+            "director_id": 1,
+            "country_id": 1,
+            "movieName": "string",
+            "description": "string",
+            "runningTime": "string",
+            "premiereDate": "2023-07-19T07:47:46.673Z",
+            "releasedDate": "2023-07-19T07:47:46.673Z",
+            "actors": [
+                {
+                    "id": 1
+                }
+            ],
+            "genres": [
+                {
+                    "id": 1
+                },
+                {
+                    "id":2
+                },
+                {
+                    "id":3
+                }
+            ]
+        })],{
+            type: 'application/json',
+        }));
+    }
+
+    function submit() {
+        fetch('http://localhost:8080/api/v1/admin/movies', {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaHUiLCJyb2xlcyI6WyJBRE1JTiJdLCJleHAiOjE2ODk3NTY0NjZ9.hTVDcDh1HRcd5o9oYnPZ8la46tLBy4f-kTZ11PkPr5Y"
+            },
+            body: formData
+        })
+            .then(response => response.json())
+            .then(json => console.log(json))
+            .catch(err => console.log(err));
+    }
+
+
+</script>
+</html>

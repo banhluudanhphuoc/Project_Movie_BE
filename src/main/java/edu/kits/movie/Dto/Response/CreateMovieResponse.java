@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateMovieResponse {
+    private Integer id;
     private Integer billingPlan_id;
     private Integer writer_id;
     private Integer director_id;

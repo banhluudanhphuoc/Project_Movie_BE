@@ -15,4 +15,5 @@ public interface MovieService {
     PaginationResponse<MovieUpcomingResponse> getUpcomingMovies(String search, Pageable pageable);
 
     MovieUpcomingDetailResponse getMovieUpcomingDetails(Integer id);
+    WatchMovieResponse watchMovie(Integer movieId);
 }

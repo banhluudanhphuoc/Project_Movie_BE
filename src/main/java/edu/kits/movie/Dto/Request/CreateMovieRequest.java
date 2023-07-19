@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,8 +22,8 @@ public class CreateMovieRequest {
     private String movieName;
     private String description;
     private String runningTime;
-    private String  video;
-    private String mainPoster;
     private LocalDateTime premiereDate;
     private Date releasedDate;
+    private List<ActorRequest> actors;
+    private List<GenresRequest> genres;
 }

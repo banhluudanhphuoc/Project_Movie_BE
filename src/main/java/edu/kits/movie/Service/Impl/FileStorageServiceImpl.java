@@ -34,13 +34,14 @@ public class FileStorageServiceImpl implements FileStorageService {
     }
 
     @Override
-    public void save(MultipartFile file) throws IOException {
+    public String save(MultipartFile file) throws IOException {
         try (InputStream inputStream = file.getInputStream()){
             UUID uuid = UUID.randomUUID();
             String uuidString = uuid.toString();
             String ext = FilenameUtils.getExtension(file.getOriginalFilename());
             Path newPath = root.resolve(uuidString + "." + ext);
             Files.copy(inputStream,newPath, REPLACE_EXISTING);
+            return uuidString + "." + ext;
         } catch (IOException e) {
             throw new IOException("Could");
         }
