@@ -1,7 +1,9 @@
 package edu.kits.movie.Service.Admin;
 
 import edu.kits.movie.Common.Mapper.ModelConverter;
+import edu.kits.movie.Dto.Request.CreateMovieEpisodeRequest;
 import edu.kits.movie.Dto.Request.CreateMovieRequest;
+import edu.kits.movie.Dto.Response.CreateMovieEpisodeResponse;
 import edu.kits.movie.Dto.Response.CreateMovieResponse;
 import edu.kits.movie.Entity.*;
 import edu.kits.movie.Repository.*;
@@ -25,23 +27,23 @@ public class MovieAdminService {
     private final MovieActorRepository movieActorRepository;
     private final MovieTrailerRepository movieTrailerRepository;
     private final PosterRepository posterRepository;
+    private final MovieEpisodeRepository movieEpisodeRepository;
 
     public CreateMovieResponse createMovie(CreateMovieRequest request,
-                                           MultipartFile video,
+                                           String video,
                                            MultipartFile mainPoster,
                                            List<MultipartFile> posters,
-                                           List<MultipartFile> trailers) {
+                                           List<String> trailers) {
         try {
-            String namePoster = fileStorageService.save(video);
-            String nameVideo = fileStorageService.save(mainPoster);
+            String namePoster = fileStorageService.save(mainPoster);
             Movie movie = converter.map(request, Movie.class);
-            movie.setVideo(nameVideo);
+            movie.setVideo(video);
             movie.setMainPoster(namePoster);
             movie.setIsDeleted(false);
             CreateMovieResponse createMovieResponse = converter.map(movieRepository.save(movie), CreateMovieResponse.class);
             //add all posters of movie
             if (!posters.isEmpty()) {
-                posters.forEach((poster) ->{
+                posters.forEach((poster) -> {
                     Poster newPoster = new Poster();
                     newPoster.setMovie(movie);
                     try {
@@ -84,24 +86,28 @@ public class MovieAdminService {
 
                 //add all trailers of movie
                 if (!trailers.isEmpty()) {
-                    trailers.forEach((trailer) ->{
+                    trailers.forEach((trailer) -> {
                         MovieTrailer movieTrailer = new MovieTrailer();
                         movieTrailer.setMovie(movie);
-                        try {
-                            movieTrailer.setTrailerName(fileStorageService.save(trailer));
+                            movieTrailer.setTrailerName(trailer);
                             movieTrailerRepository.save(movieTrailer);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
                     });
                 }
 
             }
-
             return createMovieResponse;
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public CreateMovieEpisodeResponse createMovieEpisode(CreateMovieEpisodeRequest request, String video) {
+        if (request != null) {
+            MovieEpisode movieEpisode = converter.map(request, MovieEpisode.class);
+            movieEpisode.setVideo(video);
+            return converter.map(movieEpisodeRepository.save(movieEpisode), CreateMovieEpisodeResponse.class);
+        }
+        return null;
     }
 
 
