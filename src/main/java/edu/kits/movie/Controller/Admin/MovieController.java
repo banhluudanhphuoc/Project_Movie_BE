@@ -2,7 +2,9 @@ package edu.kits.movie.Controller.Admin;
 
 
 import edu.kits.movie.Controller.Router.Api;
+import edu.kits.movie.Dto.Request.CreateMovieEpisodeRequest;
 import edu.kits.movie.Dto.Request.CreateMovieRequest;
+import edu.kits.movie.Dto.Response.CreateMovieEpisodeResponse;
 import edu.kits.movie.Dto.Response.CreateMovieResponse;
 import edu.kits.movie.Service.Admin.MovieAdminService;
 import lombok.RequiredArgsConstructor;
@@ -22,11 +24,18 @@ public class MovieController {
     @PostMapping("movies")
     public ResponseEntity<CreateMovieResponse>
     createMovie(@RequestPart("request") CreateMovieRequest request,
-                @RequestPart("video") MultipartFile video,
+                @RequestPart("video") String video,
                 @RequestPart("mainPoster") MultipartFile mainPoster,
                 @RequestPart("posters") List<MultipartFile> posters,
-                @RequestPart("trailers") List<MultipartFile> trailers
+                @RequestPart("trailers") List<String> trailers
                 ) {
         return ResponseEntity.ok(movieAdminService.createMovie(request,video,mainPoster,posters,trailers));
+    }
+
+    @PostMapping("movies-episode")
+    public ResponseEntity<CreateMovieEpisodeResponse>
+    createMovieEpisode(@RequestPart("video") String video,
+                       @RequestPart("request")CreateMovieEpisodeRequest request){
+        return ResponseEntity.ok(movieAdminService.createMovieEpisode(request,video));
     }
 }

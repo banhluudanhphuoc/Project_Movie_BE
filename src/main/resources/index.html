@@ -16,12 +16,12 @@
     let formData = new FormData();
 
     function selectedImg(file) {
-        console.log(file.files.length)
         formData.append('video', file.files[0]);
         formData.append('mainPoster', file.files[0]);
-        formData.append('trailers', "[]");
+
         for(let i = 0 ; i < file.files.length ; i ++){
             formData.append('posters', file.files[i]);
+            formData.append('trailers', file.files[i]);
         }
         formData.append('request', new Blob([JSON.stringify({
             "billingPlan_id": 1,
@@ -58,7 +58,7 @@
         fetch('http://localhost:8080/api/v1/admin/movies', {
             method: "POST",
             headers: {
-                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaHUiLCJyb2xlcyI6WyJBRE1JTiJdLCJleHAiOjE2ODk3NTY0NjZ9.hTVDcDh1HRcd5o9oYnPZ8la46tLBy4f-kTZ11PkPr5Y"
+                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwaHUiLCJyb2xlcyI6WyJBRE1JTiJdLCJleHAiOjE2ODk3NjA5MzF9.6hQuuRJYEvAq4QcTUONeY25krfANBHW6rPLrm0b7kw4"
             },
             body: formData
         })
