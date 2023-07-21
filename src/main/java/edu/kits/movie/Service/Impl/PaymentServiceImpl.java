@@ -40,7 +40,7 @@ public class PaymentServiceImpl implements PaymentService {
 
         //id 1 = pending 2 = success
         PaymentStatus paymentStatus = new PaymentStatus();
-        paymentStatus.setId(1);
+        paymentStatus.setId(2);
 
         Order order = new Order();
         order.setAccount(account);

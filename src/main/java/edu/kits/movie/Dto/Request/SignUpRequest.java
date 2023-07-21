@@ -18,7 +18,7 @@ public class SignUpRequest {
 
     private String address ;
 
-    private int phone_number ;
+    private String phone_number ;
     private String avatar ;
 
     private LocalDate dateOfBirth;
