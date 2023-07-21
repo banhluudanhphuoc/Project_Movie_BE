@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface MovieRepository extends JpaRepository<Movie, Integer>, JpaSpecificationExecutor<Movie> {
@@ -18,4 +19,8 @@ public interface MovieRepository extends JpaRepository<Movie, Integer>, JpaSpeci
 
     @Query("select m.movie from MovieGenre m where m.genres.id=14")
     Page<Movie> findAllMoviesSeries(Pageable pageable);
+
+    @Modifying
+    @Query("update Movie m set m.isDeleted=true where m.id=?1")
+    void delete(Integer movieId);
 }
