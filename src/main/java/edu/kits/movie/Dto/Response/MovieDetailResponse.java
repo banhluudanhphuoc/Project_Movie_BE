@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -31,4 +32,5 @@ public class MovieDetailResponse implements Serializable {
     private List<TrailerResponse> movieTrailers;
     private List<PosterResponse> posters;
     private Date releasedDate;
+    private LocalDateTime premiereDate;
 }

@@ -27,7 +27,10 @@ public class Actor {
 
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
-
+    @Column(name = "avatar")
+    private String avatar;
+    @Column(name = "description")
+    private String description;
     @ManyToMany
     @JoinTable(name = "movie_actor",
             joinColumns = @JoinColumn(name = "actor_id"),

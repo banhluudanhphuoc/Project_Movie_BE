@@ -18,6 +18,5 @@ public class LoginRequest {
     @Min(value = 3)
     private String username;
     @NotBlank
-    @Min(value = 8)
     private String password;
 }

@@ -5,19 +5,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ActorResponse implements Serializable {
-    private Integer id;
-    private String actorName;
+public class AccountAdminResponse {
+    private String username;
+    private Boolean isActive;
+    private String fullName;
+    private String address;
     private String avatar;
-    private String description;
     private LocalDate dateOfBirth;
-    private String country_countryName;
+    private String email;
 }

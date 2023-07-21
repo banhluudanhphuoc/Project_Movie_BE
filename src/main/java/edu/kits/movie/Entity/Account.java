@@ -54,9 +54,9 @@ public class Account {
     @Column(name = "address", length = 150)
     private String address;
 
-    @NotNull
+
     @Column(name = "phone_number", nullable = false)
-    private Integer phoneNumber;
+    private String phoneNumber;
 
     @Size(max = 50)
     @Column(name = "avatar", length = 50)

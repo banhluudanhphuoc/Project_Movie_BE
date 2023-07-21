@@ -16,13 +16,10 @@ public class AccountController {
 
 
     @Autowired
-        private AccountService accountService;
-    private SignUpRequest signUpRequest;
-
+    private AccountService accountService;
     @PostMapping("/signup")
-        public ResponseEntity<?> signUp(@RequestBody SignUpRequest signUpRequest) {
-        this.signUpRequest = signUpRequest;
+    public ResponseEntity<?> signUp(@RequestBody SignUpRequest signUpRequest) {
         accountService.registerAccount(signUpRequest);
-            return ResponseEntity.ok("Sign Up Success");
-        }
+        return ResponseEntity.ok("Sign Up Success");
+    }
 }

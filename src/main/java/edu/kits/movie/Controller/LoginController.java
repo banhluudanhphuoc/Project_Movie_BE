@@ -15,7 +15,7 @@ import javax.validation.Valid;
 public class LoginController {
     private final LoginService loginService;
     @PostMapping("/api/login")
-    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request){
+    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest request){
         return loginService.login(request);
     }
 }
