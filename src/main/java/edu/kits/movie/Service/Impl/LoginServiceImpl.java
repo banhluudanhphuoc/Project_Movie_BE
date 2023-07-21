@@ -45,6 +45,8 @@ public class LoginServiceImpl implements LoginService {
                 loginResponse.put("status","400");
                 return ResponseEntity.badRequest().body(loginResponse);
             }
+            if(!account.getIsActive())
+                return ResponseEntity.badRequest().body("Your account banned!");
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(),request.getPassword());
             Authentication authentication = authenticationManager.authenticate(authenticationToken);
             String access_token = jwtUtils.createToken(authentication);

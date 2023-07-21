@@ -31,7 +31,7 @@ public class FilesController {
     }
 
     @GetMapping("/file/{fileName}")
-    public  ResponseEntity<byte[]> getImage(@PathVariable String fileName){
+    public  ResponseEntity<?> getImage(@PathVariable String fileName){
         return ResponseEntity.ok(storageService.load(fileName));
     }
 
