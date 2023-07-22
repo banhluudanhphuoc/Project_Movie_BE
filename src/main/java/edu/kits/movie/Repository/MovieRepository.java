@@ -17,7 +17,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer>, JpaSpeci
             "and e.season.id=:seasonId ")
     Page<MovieEpisode> findMoviesSeriesBySeason(Integer movieId, Integer seasonId, Pageable pageable);
 
-    @Query("select m.movie from MovieGenre m where m.genres.id=14")
+    @Query("select m.movie from MovieGenre m where m.genres.genresName='series'")
     Page<Movie> findAllMoviesSeries(Pageable pageable);
 
     @Modifying

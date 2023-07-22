@@ -80,7 +80,7 @@ public class Movie {
     @ManyToMany(mappedBy = "movies")
     private Set<Account> accounts = new LinkedHashSet<>();
 
-    @ManyToMany(mappedBy = "movies")
+    @ManyToMany(mappedBy = "movies",fetch = FetchType.EAGER)
     private Set<Actor> actors = new LinkedHashSet<>();
 
     @ManyToMany(mappedBy = "movies")
