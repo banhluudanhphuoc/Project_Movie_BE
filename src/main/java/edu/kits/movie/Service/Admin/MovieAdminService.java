@@ -112,10 +112,9 @@ public class MovieAdminService {
         }
     }
 
-    public CreateMovieEpisodeResponse createMovieEpisode(CreateMovieEpisodeRequest request, String video) {
+    public CreateMovieEpisodeResponse createMovieEpisode(CreateMovieEpisodeRequest request) {
         if (request != null) {
             MovieEpisode movieEpisode = converter.map(request, MovieEpisode.class);
-            movieEpisode.setVideo(video);
             return converter.map(movieEpisodeRepository.save(movieEpisode), CreateMovieEpisodeResponse.class);
         }
         return null;
