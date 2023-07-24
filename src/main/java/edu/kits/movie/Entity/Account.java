@@ -99,6 +99,4 @@ public class Account {
 
     @OneToMany(mappedBy = "account")
     private Set<WatchList> watchLists = new LinkedHashSet<>();
-
-
 }
