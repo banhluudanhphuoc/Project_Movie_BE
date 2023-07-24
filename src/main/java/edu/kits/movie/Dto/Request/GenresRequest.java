@@ -11,4 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class GenresRequest {
     private Integer id;
+    private String genresName;
 }
