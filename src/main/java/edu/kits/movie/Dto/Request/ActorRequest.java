@@ -11,6 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ActorRequest {
     private Integer id;
-    private String description;
-    private String avatar;
+    private String actorName;
 }
