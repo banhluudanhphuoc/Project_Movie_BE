@@ -1,8 +1,6 @@
 package edu.kits.movie.Security.Oauth2;
 
-import edu.kits.movie.Entity.Account;
-import edu.kits.movie.Entity.BillingPlan;
-import edu.kits.movie.Entity.SocialLogin;
+import edu.kits.movie.Entity.*;
 import edu.kits.movie.Exception.OAuth2AuthenticationProcessingException;
 import edu.kits.movie.Repository.AccountRepository;
 import edu.kits.movie.Security.User.OAuth2UserInfo;
@@ -77,6 +75,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 //        user.setProviderId(oAuth2UserInfo.getId());
         user.setEmail(oAuth2UserInfo.getEmail());
         user.setFullName(oAuth2UserInfo.getName());
+        user.setUsername(oAuth2UserInfo.getId());
         BillingPlan billingPlan = new BillingPlan();
         billingPlan.setId(1);
         SocialLogin socialLogin = new SocialLogin();
