@@ -41,7 +41,7 @@ public class Account {
     @Column(name = "is_active")
     private Boolean isActive;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "social_login_id")
     private SocialLogin socialLogin;
 
