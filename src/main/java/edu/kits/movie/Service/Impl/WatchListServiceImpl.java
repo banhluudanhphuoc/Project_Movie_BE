@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -65,5 +66,16 @@ public class WatchListServiceImpl implements WatchListService {
             watchListRepository.save(watchList);
         }
 
+    }
+
+    @Override
+    public Boolean isInWatchList(Integer movieId) {
+        String username = userService.getCurrentUser();
+
+        if (username != null) {
+            Boolean result = watchListRepository.isInWatchList(movieId, username);
+            return Objects.requireNonNullElse(result, false);
+        } else
+            return false;
     }
 }

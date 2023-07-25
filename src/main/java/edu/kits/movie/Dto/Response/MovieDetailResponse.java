@@ -19,7 +19,6 @@ public class MovieDetailResponse implements Serializable {
     private String movieName;
     private String description;
     private String runningTime;
-    private String video;
     private String mainPoster;
     private String billingPlan_billingPlanName;
     private String billingPlan_id;
