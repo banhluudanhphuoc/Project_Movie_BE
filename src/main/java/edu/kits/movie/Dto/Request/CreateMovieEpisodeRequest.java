@@ -17,6 +17,8 @@ public class CreateMovieEpisodeRequest {
     private Integer movie_id;
     @NotNull
     private Integer season_id;
+    @NotBlank
+    private String video;
     private String description;
     @NotNull
     private Integer episode;

@@ -28,6 +28,11 @@ public class Director {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
+    @Column(name = "avatar")
+    private String avatar;
+    @Column(name = "description")
+    private String description;
+
     @OneToMany(mappedBy = "director")
     private Set<Movie> movies = new LinkedHashSet<>();
 

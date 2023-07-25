@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +22,8 @@ public class MovieResponse implements Serializable {
     private String billingPlan_id;
     private Integer averageRatingPoint;
     private Date releasedDate;
+    private String description;
+    private List<GenresResponse> genres;
+    private boolean isSeries;
+    private String banner;
 }

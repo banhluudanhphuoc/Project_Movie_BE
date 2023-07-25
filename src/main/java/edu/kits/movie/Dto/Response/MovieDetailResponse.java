@@ -25,6 +25,8 @@ public class MovieDetailResponse implements Serializable {
     private String billingPlan_id;
     private String country_countryName;
     private String director_directorName;
+    private String director_avatar;
+    private String director_description;
     private String writer_writerName;
     private boolean isSeries;
     private List<ActorResponse> actors;
@@ -33,4 +35,5 @@ public class MovieDetailResponse implements Serializable {
     private List<PosterResponse> posters;
     private Date releasedDate;
     private LocalDateTime premiereDate;
+    private String banner;
 }

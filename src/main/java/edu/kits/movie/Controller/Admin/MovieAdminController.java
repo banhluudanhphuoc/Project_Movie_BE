@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +26,7 @@ import java.util.Optional;
 @RequestMapping(Api.AdminApi.ADMIN_BASE)
 @RequiredArgsConstructor
 @Slf4j
-public class MovieController {
+public class MovieAdminController {
     private final MovieAdminService movieAdminService;
 
     @PostMapping("movies")
@@ -34,16 +35,16 @@ public class MovieController {
                 @RequestPart("video") String video,
                 @RequestPart("mainPoster") MultipartFile mainPoster,
                 @RequestPart("posters") List<MultipartFile> posters,
-                @RequestPart("trailers") List<String> trailers
+                @RequestPart("trailers") List<String> trailers,
+                @RequestPart("banner") MultipartFile banner
     ) {
-        return ResponseEntity.ok(movieAdminService.createMovie(request, video, mainPoster, posters, trailers));
+        return ResponseEntity.ok(movieAdminService.createMovie(request, video, mainPoster, posters, trailers,banner));
     }
 
     @PostMapping("movies-episode")
     public ResponseEntity<CreateMovieEpisodeResponse>
-    createMovieEpisode(@RequestPart("video") String video,
-                       @RequestPart("request") CreateMovieEpisodeRequest request) {
-        return ResponseEntity.ok(movieAdminService.createMovieEpisode(request, video));
+    createMovieEpisode(@RequestBody @Valid CreateMovieEpisodeRequest request) {
+        return ResponseEntity.ok(movieAdminService.createMovieEpisode(request));
     }
 
     @PutMapping("movies")

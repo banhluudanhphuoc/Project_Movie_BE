@@ -5,6 +5,7 @@ spring:
       max-request-size: 10MB
   datasource:
     url: jdbc:mysql://18.142.210.17:6033/group_7
+#     url: jdbc:mysql://localhost:3306/movie
     username: root
     password: my_secret_password
   jpa:
@@ -49,7 +50,7 @@ spring:
   app:
     jwtRefreshExpirationMs: 6000
     jwtExpirationMs: 60000
-    jwtSecret: MovieSeven
+    jwtSecret: secret
 #    jwtCookieName: bonik
 #    jwtRefreshCookieName: bonikRF
     cors:
@@ -60,16 +61,15 @@ spring:
     oauth2:
       authorizedRedirectUris:
         - http://localhost:3000/
-        - http://localhost:63342/
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          google:
-#            client-id: 496256023815-gfnv445ste0ep1o56qqr2j7ffggbd17s.apps.googleusercontent.com
-#            client-secret: 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
-#            redirect-uri: "{baseUrl}/oauth2/callback"
-#            scope:
-#              - email
-#              - profile
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 496256023815-gfnv445ste0ep1o56qqr2j7ffggbd17s.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "{baseUrl}/oauth2/callback"
+            scope:
+              - email
+              - profile
 

@@ -80,11 +80,11 @@ public class MoviesController {
         return movieId.map(id -> ResponseEntity.ok(movieService.getMovieUpcomingDetails(id))).orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @GetMapping("/movies/watching/{movieId}")
-    public ResponseEntity<?> watchMovie(@PathVariable Integer movieId){
-        WatchMovieResponse watchMovieResponse = movieService.watchMovie(movieId);
-        if (watchMovieResponse == null)
-            return ResponseEntity.badRequest().body("Movie Not found!");
-        return ResponseEntity.ok(watchMovieResponse);
-    }
+//    @GetMapping("/movies/watching/{movieId}")
+//    public ResponseEntity<?> watchMovie(@PathVariable Integer movieId){
+//        WatchMovieResponse watchMovieResponse = movieService.watchMovie(movieId);
+//        if (watchMovieResponse == null)
+//            return ResponseEntity.badRequest().body("Movie Not found!");
+//        return ResponseEntity.ok(watchMovieResponse);
+//    }
 }

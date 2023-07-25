@@ -30,4 +30,5 @@ public class MovieUpcomingDetailResponse {
     private List<PosterResponse> posters;
     private Date releasedDate;
     private LocalDateTime premiereDate;
+    private String banner;
 }

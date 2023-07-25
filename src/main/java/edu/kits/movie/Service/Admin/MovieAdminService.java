@@ -44,12 +44,15 @@ public class MovieAdminService {
                                            String video,
                                            MultipartFile mainPoster,
                                            List<MultipartFile> posters,
-                                           List<String> trailers) {
+                                           List<String> trailers,
+                                           MultipartFile banner) {
         try {
             String namePoster = fileStorageService.save(mainPoster);
+            String nameBanner = fileStorageService.save(banner);
             Movie movie = converter.map(request, Movie.class);
             movie.setVideo(video);
             movie.setMainPoster(namePoster);
+            movie.setBanner(nameBanner);
             movie.setIsDeleted(false);
             CreateMovieResponse createMovieResponse = converter.map(movieRepository.save(movie), CreateMovieResponse.class);
             //add all posters of movie
@@ -112,10 +115,9 @@ public class MovieAdminService {
         }
     }
 
-    public CreateMovieEpisodeResponse createMovieEpisode(CreateMovieEpisodeRequest request, String video) {
+    public CreateMovieEpisodeResponse createMovieEpisode(CreateMovieEpisodeRequest request) {
         if (request != null) {
             MovieEpisode movieEpisode = converter.map(request, MovieEpisode.class);
-            movieEpisode.setVideo(video);
             return converter.map(movieEpisodeRepository.save(movieEpisode), CreateMovieEpisodeResponse.class);
         }
         return null;

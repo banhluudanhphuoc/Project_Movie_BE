@@ -1,4 +1,4 @@
-package edu.kits.movie.Dto.Request;
+package edu.kits.movie.Dto.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,9 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class GenresRequest {
+@AllArgsConstructor
+public class ActorAdminResponse {
     private Integer id;
-    private String genresName;
+    private String actorName;
 }
