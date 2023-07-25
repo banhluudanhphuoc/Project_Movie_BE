@@ -5,6 +5,7 @@ import edu.kits.movie.Entity.Account;
 import edu.kits.movie.Dto.Response.UserResponse;
 import edu.kits.movie.Repository.AccountRepository;
 import edu.kits.movie.Service.UserService;
+import edu.kits.movie.Utils.EmailUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponse getUserInfo() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Account account = accountRepository.findById(username).orElse(null);
+        Account account;
+        if (EmailUtils.isEmail(username)) {
+            account = accountRepository.findByEmail(username).orElse(null);
+        } else {
+            account = accountRepository.findById(username).orElse(null);
+        }
         if (account != null)
             return converter.map(account, UserResponse.class);
         return null;

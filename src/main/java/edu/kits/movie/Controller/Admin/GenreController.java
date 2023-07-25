@@ -1,4 +1,4 @@
-package edu.kits.movie.Controller;
+package edu.kits.movie.Controller.Admin;
 
 import edu.kits.movie.Controller.Router.Api;
 import edu.kits.movie.Dto.Response.GenresResponse;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(Api.UserApi.USER_BASE)
+@RequestMapping(Api.AdminApi.ADMIN_BASE)
 public class GenreController {
     private final GenresService genresService;
     @GetMapping("genres")
