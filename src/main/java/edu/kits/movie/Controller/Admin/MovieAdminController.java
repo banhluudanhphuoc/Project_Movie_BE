@@ -35,9 +35,10 @@ public class MovieAdminController {
                 @RequestPart("video") String video,
                 @RequestPart("mainPoster") MultipartFile mainPoster,
                 @RequestPart("posters") List<MultipartFile> posters,
-                @RequestPart("trailers") List<String> trailers
+                @RequestPart("trailers") List<String> trailers,
+                @RequestPart("banner") MultipartFile banner
     ) {
-        return ResponseEntity.ok(movieAdminService.createMovie(request, video, mainPoster, posters, trailers));
+        return ResponseEntity.ok(movieAdminService.createMovie(request, video, mainPoster, posters, trailers,banner));
     }
 
     @PostMapping("movies-episode")

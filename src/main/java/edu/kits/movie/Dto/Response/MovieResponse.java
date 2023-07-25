@@ -25,4 +25,5 @@ public class MovieResponse implements Serializable {
     private String description;
     private List<GenresResponse> genres;
     private boolean isSeries;
+    private String banner;
 }

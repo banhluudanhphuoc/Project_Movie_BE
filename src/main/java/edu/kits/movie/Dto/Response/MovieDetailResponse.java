@@ -35,4 +35,5 @@ public class MovieDetailResponse implements Serializable {
     private List<PosterResponse> posters;
     private Date releasedDate;
     private LocalDateTime premiereDate;
+    private String banner;
 }
