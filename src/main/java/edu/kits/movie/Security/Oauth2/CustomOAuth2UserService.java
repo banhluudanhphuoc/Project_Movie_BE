@@ -75,7 +75,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 //        user.setProviderId(oAuth2UserInfo.getId());
         user.setEmail(oAuth2UserInfo.getEmail());
         user.setFullName(oAuth2UserInfo.getName());
-        user.setUsername(oAuth2UserInfo.getId());
+        user.setUsername(oAuth2UserInfo.getEmail());
         BillingPlan billingPlan = new BillingPlan();
         billingPlan.setId(1);
         SocialLogin socialLogin = new SocialLogin();

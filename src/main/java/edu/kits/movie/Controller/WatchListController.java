@@ -27,6 +27,13 @@ public class WatchListController {
         return ResponseEntity.ok(watchListService.getUserWatchList(pageable));
     }
 
+    @GetMapping("watchlist-is-in")
+    public ResponseEntity<Boolean> isInWatchList(
+            @RequestParam Integer movieId
+    ){
+        return ResponseEntity.ok(watchListService.isInWatchList(movieId));
+    }
+
     @PostMapping("watchlist")
     public ResponseEntity<?> addToWatchList(@RequestParam Integer movieId) {
         watchListService.addToWatchList(movieId);

@@ -16,7 +16,6 @@ import java.util.List;
 public class MovieResponse implements Serializable {
     private Integer id;
     private String movieName;
-    private String video;
     private String mainPoster;
     private String billingPlan_billingPlanName;
     private String billingPlan_id;

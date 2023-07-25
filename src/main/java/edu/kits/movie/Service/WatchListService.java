@@ -10,4 +10,6 @@ public interface WatchListService {
     void deleteWatchList(Integer movieId);
 
     void addToWatchList(Integer movieId);
+
+    Boolean isInWatchList(Integer movieId);
 }
