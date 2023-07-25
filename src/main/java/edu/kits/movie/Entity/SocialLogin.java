@@ -4,6 +4,8 @@ import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -17,7 +19,7 @@ public class SocialLogin {
     @Column(name = "provider", length = 50)
     private String provider;
 
-    @OneToOne(mappedBy = "socialLogin")
-    private Account account;
+    @OneToMany(mappedBy = "socialLogin")
+    private List<Account> account;
 
 }
