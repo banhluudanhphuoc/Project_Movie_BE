@@ -33,6 +33,9 @@ public class Movie {
     @Column(name = "running_time", nullable = false, length = 50)
     private String runningTime;
 
+    @Column(name = "banner")
+    private String banner;
+
     @Column(name = "video", nullable = false, length = 100)
     private String video;
 

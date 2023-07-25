@@ -31,6 +31,7 @@ public class CreateMovieRequest {
     private LocalDateTime premiereDate;
     @NotNull
     private Date releasedDate;
+    private String banner;
     private List<ActorRequest> actors;
     private List<GenresRequest> genres;
 }

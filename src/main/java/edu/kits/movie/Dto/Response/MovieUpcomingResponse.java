@@ -22,4 +22,5 @@ public class MovieUpcomingResponse {
     private String billingPlan_billingPlanName;
     private String billingPlan_id;
     private Date releasedDate;
+    private String banner;
 }
