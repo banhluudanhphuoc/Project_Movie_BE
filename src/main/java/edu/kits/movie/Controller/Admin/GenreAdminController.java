@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(Api.AdminApi.ADMIN_BASE)
-public class GenreController {
+public class GenreAdminController {
     private final GenresService genresService;
     @GetMapping("genres")
     public ResponseEntity<List<GenresResponse>> getGenres(){

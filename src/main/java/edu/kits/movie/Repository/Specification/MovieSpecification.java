@@ -25,6 +25,7 @@ public class MovieSpecification implements Specification<Movie> {
 
     @Override
     public Predicate toPredicate(Root<Movie> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+        System.out.println(criteria.getValue());
         return switch (criteria.getOperation()) {
             case EQUALITY -> criteria.getKey().equalsIgnoreCase("genre") ?
                     hasGenre(criteria.getValue().toString(), root, builder) :

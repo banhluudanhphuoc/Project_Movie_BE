@@ -21,9 +21,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SeasonController {
     private final SeasonService seasonService;
+
     @GetMapping("/seasons/{movieId}")
     public ResponseEntity<List<SeasonResponse>>
-    getMovieSeasons(@PathVariable(name = "movieId") @Valid @NotNull Integer movieId){
+    getMovieSeasons(@PathVariable(name = "movieId") @Valid @NotNull Integer movieId) {
         return ResponseEntity.ok(seasonService.getMovieSeasons(movieId));
+    }
+
+    @GetMapping("/seasons")
+    public ResponseEntity<List<SeasonResponse>>
+    getAllSeason() {
+        return ResponseEntity.ok(seasonService.getSeasons());
     }
 }
