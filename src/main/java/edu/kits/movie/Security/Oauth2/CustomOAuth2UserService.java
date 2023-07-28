@@ -49,11 +49,11 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         Optional<Account> userOptional = accountRepository.findByEmail(oAuth2UserInfo.getEmail());
         Account user;
         if (userOptional.isPresent()) {
-            if (userOptional.get().getSocialLogin().getProvider().equalsIgnoreCase("local")) {
-                String rawString = "Email này đã được sử dụng bởi một tài khoản khác";
-                String error_message = URLEncoder.encode(rawString, StandardCharsets.UTF_8);
-                throw new OAuth2AuthenticationProcessingException(error_message);
-            }
+//            if (userOptional.get().getSocialLogin().getProvider().equalsIgnoreCase("local")) {
+//                String rawString = "Email này đã được sử dụng bởi một tài khoản khác";
+//                String error_message = URLEncoder.encode(rawString, StandardCharsets.UTF_8);
+//                throw new OAuth2AuthenticationProcessingException(error_message);
+//            }
             user = userOptional.get();
 //            if(!user.getProvider().equals(AuthProvider.valueOf(oAuth2UserRequest.getClientRegistration().getRegistrationId()))) {
 //                throw new OAuth2AuthenticationProcessingException("Looks like you're signed up with " +
