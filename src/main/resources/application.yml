@@ -4,10 +4,10 @@ spring:
       max-file-size : 10MB
       max-request-size: 10MB
   datasource:
-    url: jdbc:mysql://localhost:3306/movie
 #    url: jdbc:mysql://localhost:3306/group_7
+    url: jdbc:mysql://18.142.210.17:6033/group_7
     username: root
-    password: nhatphu234aA.
+    password: my_secret_password
   jpa:
     show-sql: true
     properties:
@@ -54,7 +54,7 @@ spring:
 #    jwtCookieName: bonik
 #    jwtRefreshCookieName: bonikRF
     cors:
-      allowedOrigins: http://localhost:3000,http://localhost:63342
+      allowedOrigins: https://develop--movieseven.netlify.app,http://localhost:3000,https://movieseven.netlify.app,https://movieseven-admin.netlify.app
       # After successfully authenticating with the OAuth2 Provider,
       # we'll be generating an auth token for the user and sending the token to the
       # redirectUri mentioned by the client in the /oauth2/authorize request.
@@ -62,6 +62,9 @@ spring:
       authorizedRedirectUris:
         - http://localhost:3000/
         - http://localhost:3000/oauth2
+        - https://develop--movieseven.netlify.app/oauth2
+        - https://movieseven.netlify.app/oauth2
+        - https://movieseven-admin.netlify.app
 
   security:
     oauth2:
@@ -70,7 +73,7 @@ spring:
           google:
             client-id: 496256023815-gfnv445ste0ep1o56qqr2j7ffggbd17s.apps.googleusercontent.com
             client-secret: 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
-            redirect-uri: "{baseUrl}/oauth2/callback"
+            redirect-uri: https://danielaws.tk/group7/oauth2/callback
             scope:
               - email
               - profile
