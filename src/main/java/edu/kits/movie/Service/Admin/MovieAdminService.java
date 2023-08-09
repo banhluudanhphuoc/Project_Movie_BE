@@ -111,6 +111,7 @@ public class MovieAdminService {
             }
             return createMovieResponse;
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

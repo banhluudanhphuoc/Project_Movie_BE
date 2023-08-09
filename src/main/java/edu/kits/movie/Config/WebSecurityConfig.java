@@ -56,7 +56,7 @@ public class WebSecurityConfig {
         http.authorizeHttpRequests()
                 .antMatchers("/api/login", "/api/signup", "/swagger-ui/**",
                         "/v3/api-docs/**","/api/v1/file/**",
-                        "/oauth2/**","/auth/**")
+                        "/oauth2/**","/auth/**","api/files")
                 .permitAll()
                 .antMatchers("/api/v1/admin/**")
                 .hasAnyAuthority("ADMIN")
